@@ -1,18 +1,20 @@
+"use client"
+
 export default function ErrorBox({ message, onRetry }: { message: string; onRetry?: () => void }) {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md">
-        <h2 className="text-red-800 font-semibold text-lg mb-2">Error</h2>
-        <p className="text-red-600">{message}</p>
+    <div className="min-h-screen bg-neutral-900 flex items-center justify-center p-4">
+      <div className="bg-neutral-800/30 border border-red-700 rounded-lg p-6 max-w-md shadow-sm">
+        <h2 className="text-red-300 font-semibold text-lg mb-2">Error</h2>
+        <p className="text-gray-200 text-sm mb-4">{message}</p>
         {onRetry && (
           <button
             onClick={onRetry}
-            className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
+            className="w-full bg-red-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition font-medium text-sm"
           >
             Retry
           </button>
         )}
       </div>
     </div>
-  );
+  )
 }

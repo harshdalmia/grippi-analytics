@@ -2,13 +2,13 @@ export default function Header({
   title,
   subtitle,
 }: {
-  title: string;
-  subtitle?: string;
+  title: string
+  subtitle?: string
 }) {
   return (
-    <div className="mb-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
-      {subtitle && <p className="text-gray-600">{subtitle}</p>}
+    <div className="mb-6 pt-4">
+      <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-3 tracking-tight drop-shadow-md">{title}</h1>
+      {subtitle && <p className="text-lg sm:text-xl text-gray-300">{subtitle}</p>}
     </div>
-  );
+  )
 }
