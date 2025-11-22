@@ -4,8 +4,7 @@ CREATE TABLE IF NOT EXISTS campaigns (
     status VARCHAR(50) NOT NULL CHECK (status IN ('Active', 'Paused')),
     clicks INTEGER NOT NULL DEFAULT 0,
     cost DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
-    impressions INTEGER NOT NULL DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    impressions INTEGER NOT NULL DEFAULT 0
 );
 
 INSERT INTO campaigns (name, status, clicks, cost, impressions) VALUES

@@ -71,32 +71,6 @@ def get_campaigns(status: Optional[str] = Query(None, regex="^(Active|Paused|All
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error fetching campaigns: {str(e)}")
 
-@app.get("/campaigns/{campaign_id}", response_model=Campaign)
-def get_campaign(campaign_id: int):
-    """Get a single campaign by ID"""
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        
-        cursor.execute("SELECT * FROM campaigns WHERE id = %s", (campaign_id,))
-        campaign = cursor.fetchone()
-        
-        cursor.close()
-        conn.close()
-        
-        if not campaign:
-            raise HTTPException(status_code=404, detail="Campaign not found")
-        
-        campaign_dict = dict(campaign)
-        if isinstance(campaign_dict['cost'], Decimal):
-            campaign_dict['cost'] = float(campaign_dict['cost'])
-        
-        return campaign_dict
-    
-    except HTTPException:
-        raise
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error fetching campaign: {str(e)}")
 
 @app.get("/health")
 def health_check():

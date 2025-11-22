@@ -22,3 +22,16 @@ body {
 
 /* small helpers for dark theme */
 .card-bg { background-color: rgba(255,255,255,0.03); }
+
+/* modern app background: soft radial + linear layers for depth */
+.app-bg {
+  background-color: #05060a;
+  background-image: radial-gradient(1000px 300px at 10% 10%, rgba(255,255,255,0.02), transparent 20%),
+                    linear-gradient(180deg, rgba(8,10,15,0.95), rgba(2,4,8,0.98));
+}
+
+/* utility for subtle card surface */
+.surface {
+  background-color: rgba(255,255,255,0.03);
+  border-radius: 0.75rem;
+}
